@@ -6,7 +6,8 @@ kernel (`SeqGen.cu`, multi-probe hash buckets + direct small-offset probes
 + forward propagation), parsed into sequences by a warp-cooperative
 greedy/lazy picker with repcode-aware scoring, and emitted as **ordinary
 Zstandard frames** via `ZSTD_compressSequences`. Output is a normal `.7z`
-with method `ZSTD` — any standard zstd decoder can read it.
+with method `ZSTDGPU` — it shares stock zstd's method id `0x4F71101`,
+so archives still decompress with the ordinary ZSTD codec.
 
 The GPU work lives in a separate daemon process (`z7gpuhost.exe`, spawned
 on first use and reused) so the codec DLL stays dependency-free. If no GPU
@@ -27,7 +28,7 @@ Deploy `zstdgpu.dll` into `Codecs/` next to `7z.exe`/`7zFM.exe`, and
 ## Usage
 
 ```
-7z a -m0=ZSTD archive.7z files\     # GPU-accelerated compression
+7z a -m0=ZSTDGPU archive.7z files\     # GPU-accelerated compression
 7z x archive.7z                     # ordinary extraction
 ```
 

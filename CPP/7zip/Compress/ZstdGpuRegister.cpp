@@ -14,7 +14,7 @@
 #endif
 
 REGISTER_CODEC_E(
-  ZSTD,
+  ZSTDGPU,
   NCompress::NZSTDGPU::CDecoder(),
   NCompress::NZSTDGPU::CEncoder(),
-  0x4F71101, "ZSTD")
+  0x4F71101, "ZSTDGPU")

@@ -12,7 +12,7 @@ with a custom LZ77 parser running on an NVIDIA GPU (CUDA). Drop
 sequence construction through the usual interface:
 
 ```
-7z a -m0=ZSTD archive.7z files\     # GPU compression
+7z a -m0=ZSTDGPU archive.7z files\     # GPU compression
 7z x archive.7z                     # ordinary extraction (standard zstd frames)
 ```
 
@@ -86,7 +86,7 @@ LZ77 パーサーで高速化した実験的フォークです。
 マッチ探索とシーケンス構築を引き受けます:
 
 ```
-7z a -m0=ZSTD archive.7z files\     # GPU 圧縮
+7z a -m0=ZSTDGPU archive.7z files\     # GPU 圧縮
 7z x archive.7z                     # 普通に解凍 (標準 zstd フレーム)
 ```
 
@@ -161,7 +161,7 @@ DLL と同じ場所に配置。
 构建：
 
 ```
-7z a -m0=ZSTD archive.7z files\     # GPU 压缩
+7z a -m0=ZSTDGPU archive.7z files\     # GPU 压缩
 7z x archive.7z                     # 正常解压 (标准 zstd 帧)
 ```
 
