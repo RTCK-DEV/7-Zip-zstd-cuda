@@ -1,0 +1,6 @@
+#include "../../../../C/7zVersionTr.h"
+#include "../../../../C/7zVersion.rc"
+
+MY_VERSION_INFO_DLL("7-Zip ZSTD-CUDA Plugin v1.5.7", "zstdgpu")
+
+101  ICON  "../../Archive/Icons/zst.ico"
