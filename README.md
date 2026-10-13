@@ -33,6 +33,8 @@ You can install it in two ways:
 
 6. [Fast LZMA2] v1.0.1 is a LZMA2 compression algorithm, 20% to 100% faster than normal LZMA2 at levels 5 and above, but with a slightly lower compression ratio. It uses a parallel buffered radix matchfinder and some optimizations from Zstandard. The codec uses much less additional memory per thread than standard LZMA2.
    - Levels: 1..9
+
+7. **Zstandard GPU** (`zstdgpu`, bundle `Codec_zstdgpu`) is an experimental CUDA-accelerated variant of the Zstandard codec. LZ77 match finding and sequence parsing run on an NVIDIA GPU in a helper process (`z7gpuhost.exe`); the resulting sequences are emitted as ordinary Zstandard frames via `ZSTD_compressSequences`, so archives remain fully compatible with any zstd decoder. Without a GPU or helper binary it transparently falls back to the CPU encoder. See [Codec_zstdgpu README](CPP/7zip/Bundles/Codec_zstdgpu/README.md).
    
 ### Encryption overview
 1. [7zAES] is the default encryption method of 7-Zip, using AES-256 in CBC mode with SHA-256 based key derivation.
